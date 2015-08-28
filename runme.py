@@ -1,5 +1,5 @@
 # coding: utf-8
-from __future__ import absolute_import
+from __future__ import absolute_import, print_function, unicode_literals
 
 # Pythonic shit
 import sys
@@ -10,15 +10,19 @@ if current not in sys.path:
 
 
 import config
-from lib import email
+from lib import email, parser
 
 
 def run():
     conn = email.connect(config.EMAIL_CONNECT)
     for uid, message in email.search(conn, config.EMAIL_SEARCH):
-        text = email.message_to_text(message)
-        print
-        print '>>>', uid, type(text), text
+        # print()
+        # print('+', uid, message.get_content_type(), message.get_content_charset())
+        text = email.message_to_plain_text(message)
+        if not text:
+            continue
+        parsed = parser.parse_body(text, config.PARSE_RULES)
+        # print(uid, type(text), len(text), parsed)
 
 
 if __name__ == "__main__":

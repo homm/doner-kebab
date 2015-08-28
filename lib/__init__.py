@@ -4,7 +4,7 @@ from __future__ import absolute_import
 import itertools
 
 
-def grouper(it, n):
+def grouping(it, n):
     it = iter(it)
     while True:
         chunk = list(itertools.islice(it, n))
