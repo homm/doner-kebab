@@ -9,12 +9,16 @@ if current not in sys.path:
     sys.path.insert(0, current)
 
 
+import logging
+
 import config
 from lib import email, parser
 
 
 def run():
     conn = email.connect(config.EMAIL_CONNECT)
+    if not conn:
+        return
     for uid, message in email.search(conn, config.EMAIL_SEARCH):
         text = email.message_to_plain_text(message)
         if not text:
@@ -25,4 +29,5 @@ def run():
 
 
 if __name__ == "__main__":
+    logging.basicConfig()
     run()
