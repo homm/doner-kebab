@@ -6,7 +6,7 @@ import logging
 from imaplib import IMAP4, IMAP4_SSL
 from email import message_from_string
 
-from html2text import html2text, unescape
+from html2text import HTML2Text, unescape
 
 from . import grouping
 
@@ -88,7 +88,10 @@ def message_to_plain_text(message):
         payload = payload.decode(content_charset, 'ignore')
 
     if content_type == 'text/html':
-        payload = unescape(html2text(payload))
+        h = HTML2Text()
+        h.body_width = 0
+        h.unicode_snob = True
+        payload = h.unescape(h.handle(payload))
 
     # Convert line endings.
     payload = payload.replace('\r\n', '\n').replace('\r', '\n')
