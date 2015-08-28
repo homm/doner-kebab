@@ -26,8 +26,12 @@ def search(imap, search_conf):
     )
 
     for uids in grouper(found[0].split(' '), 10):
-        res, fetched = imap.fetch(','.join(uids), '(RFC822.HEADER BODY.PEEK[1])')
+        res, fetched = imap.fetch(','.join(uids), '(RFC822)')
 
-        for uid, i in zip(uids, range(0, len(fetched), 3)):
-            headers = message_from_string(fetched[i + 0][1])
-            yield uid, headers, fetched[i + 1][1]
+        for uid, i in zip(uids, range(0, len(fetched), 2)):
+            yield uid, message_from_string(fetched[i + 0][1])
+
+
+def message_to_text(message):
+    payload = message.get_payload(decode=True)
+    return payload.decode(message.get_content_charset(), 'ignore')

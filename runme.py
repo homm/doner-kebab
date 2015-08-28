@@ -15,11 +15,10 @@ from lib import email
 
 def run():
     conn = email.connect(config.EMAIL_CONNECT)
-    for uid, headers, body in email.search(conn, config.EMAIL_SEARCH):
+    for uid, message in email.search(conn, config.EMAIL_SEARCH):
+        text = email.message_to_text(message)
         print
-        print '>>>', uid
-        print headers
-        print type(body), body
+        print '>>>', uid, type(text), text
 
 
 if __name__ == "__main__":
