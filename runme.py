@@ -42,7 +42,7 @@ def run():
         handled.append(uid)
 
     if handled:
-        email.mark(conn, handled, config.EMAIL_SEARCH['label'])
+        email.mark_as_seen(conn, handled)
 
 
 if __name__ == "__main__":

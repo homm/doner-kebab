@@ -39,7 +39,7 @@ def search(imap, search_conf):
 
     res, found = imap.search(
         'utf-8',
-        # 'ALL',
+        'UNSEEN',
         'FROM', '"{0}"'.format(search_conf['from']),
         'SUBJECT', '"{0}"'.format(search_conf['subject']),
     )
@@ -55,10 +55,8 @@ def search(imap, search_conf):
             yield uid, message_from_string(fetched[i + 0][1])
 
 
-def mark(imap, uids, label):
-    pass
-    # imap.create(label)
-    # imap.copy(','.join(uids), label)
+def mark_as_seen(imap, uids):
+    imap.store(','.join(uids), '+FLAGS', '(SEEN)')
 
 
 def message_to_plain_text(message):
