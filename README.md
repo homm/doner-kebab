@@ -17,7 +17,7 @@
 Настройка
 ---------
 
-Все настройки хранятся файле config.py. 
+Все настройки хранятся файле `config.py`. 
 
 ### EMAIL_CONNECT
 
@@ -51,7 +51,5 @@
 1. [Скачать](https://www.python.org/downloads/) и установить Python. Если у вас Mac или Linux, с 99.9% вероятностью он уже установлен.
 2. Если Python версии ниже 2.7.9, возможно у вас не установлен pip. Тогда его нужно [установить отдельно](https://pip.pypa.io/en/latest/installing.html).
 3. Устанавливаем зависимости. Переходим в папку с проектом и выполяем в командной строке:
-  ```
-  python -m pip install -r requirements.txt
-  ````
+  ```python -m pip install -r requirements.txt```
 4. Для запуска достаточно просто запустить `runme.py`.

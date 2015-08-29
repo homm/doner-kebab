@@ -2,8 +2,8 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 EMAIL_CONNECT = {
-    'login': 'homm86@gmail.com',
-    'password': 'noivofnzttlgldpg',
+    'login': 'your.mail@yandex.ru',
+    'password': 'not a real password',
     'server': 'imap.yandex.ru',
     'ssl': True,
 }
