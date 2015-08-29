@@ -12,19 +12,19 @@ if current not in sys.path:
 import logging
 
 import config
-from lib import email, parser
+from lib import email, parser, sheets
 
 
 logger = logging.getLogger(__name__)
 
 
 def run():
-    conn = email.connect(config.EMAIL_CONNECT)
-    if not conn:
+    email_conn = email.connect(config.EMAIL_CONNECT)
+    if not email_conn:
         return
 
     handled = []
-    for uid, message in email.search(conn, config.EMAIL_SEARCH):
+    for uid, message in email.search(email_conn, config.EMAIL_SEARCH):
         text = email.message_to_plain_text(message)
         if not text:
             logger.warn('No text body for message {}.'.format(uid))
@@ -41,8 +41,10 @@ def run():
 
         handled.append(uid)
 
+    connection = sheets.connect(config.GOOGLE_AUTH)
+
     if handled:
-        email.mark_as_seen(conn, handled)
+        email.mark_as_seen(email_conn, handled)
 
 
 if __name__ == "__main__":
