@@ -35,7 +35,7 @@ def connect(connect_conf):
 
 
 def search(imap, search_conf):
-    imap.select(search_conf['mailbox'])
+    imap.select(search_conf['mailbox'], readonly=False)
 
     res, found = imap.search(
         'utf-8',
@@ -43,12 +43,22 @@ def search(imap, search_conf):
         'FROM', '"{0}"'.format(search_conf['from']),
         'SUBJECT', '"{0}"'.format(search_conf['subject']),
     )
+    if not found[0]:
+        logger.debug('not found')
+        return
 
     for uids in grouping(found[0].split(' '), 20):
+        logger.debug('found: {}'.format(repr(uids)))
         res, fetched = imap.fetch(','.join(uids), '(RFC822)')
 
         for uid, i in zip(uids, range(0, len(fetched), 2)):
             yield uid, message_from_string(fetched[i + 0][1])
+
+
+def mark(imap, uids, label):
+    pass
+    # imap.create(label)
+    # imap.copy(','.join(uids), label)
 
 
 def message_to_plain_text(message):
@@ -58,15 +68,15 @@ def message_to_plain_text(message):
     if message.is_multipart():
         for part in message.get_payload():
             if part.is_multipart():
-                logger.info('+', part.get_content_type(),
-                            part.get_content_charset())
+                logger.debug('+ {} {}'.format(part.get_content_type(),
+                                              part.get_content_charset()))
                 payload = message_to_plain_text(part)
                 content_type = 'text/plain'
                 content_charset = ''
                 break
 
-            logger.info('|', part.get_content_type(),
-                        part.get_content_charset())
+            logger.debug('| {} {}'.format(part.get_content_type(),
+                                          part.get_content_charset()))
             if part.get_content_type() in ['text/plain', 'text/html']:
                 payload = part.get_payload(decode=True)
                 content_type = part.get_content_type()

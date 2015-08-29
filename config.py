@@ -4,7 +4,7 @@ from __future__ import absolute_import, print_function, unicode_literals
 EMAIL_CONNECT = {
     'login': 'homm86@gmail.com',
     'password': 'noivofnzttlgldpg',
-    'server': 'imap.gmail.com',
+    'server': 'imap.yandex.ru',
     'ssl': True,
 }
 

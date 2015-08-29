@@ -2,6 +2,10 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 import re
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 def parse_body(body, rules):
@@ -13,7 +17,7 @@ def parse_body(body, rules):
         if match:
             match = match.group(1).strip()
         else:
-            print('Warning: {} not found.'.format(name))
+            logger.info('{} not found.'.format(name))
 
         result.append((name, match))
     return result
