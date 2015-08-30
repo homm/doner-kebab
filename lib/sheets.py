@@ -6,4 +6,9 @@ from oauth2client.client import SignedJwtAssertionCredentials
 
 
 def connect(conf):
-    pass
+    credent = SignedJwtAssertionCredentials(
+        conf['client_email'],
+        conf['private_key'],
+        ['https://spreadsheets.google.com/feeds'],
+    )
+    return gspread.authorize(credent)

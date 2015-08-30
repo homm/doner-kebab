@@ -30,3 +30,7 @@ GOOGLE_AUTH = {
     "client_id": "869161537625-9td4miap838n6of58o0vq82am5iihe8k.apps.googleusercontent.com",
     "type": "service_account"
 }
+
+GOOGLE_DOC = {
+    'id': '1Ht2e2tmiHWOv6UsQ1T0UMoWd2T_zs5XMlQ_oTakOrrQ',
+}

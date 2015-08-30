@@ -14,34 +14,34 @@ from . import grouping
 logger = logging.getLogger(__name__)
 
 
-def connect(connect_conf):
+def connect(conf):
     # Construct IMAP client
-    imap4_class = IMAP4_SSL if connect_conf['ssl'] else IMAP4
+    imap4_class = IMAP4_SSL if conf['ssl'] else IMAP4
     try:
-        imap = imap4_class(connect_conf['server'])
+        imap = imap4_class(conf['server'])
     except Exception as e:
         logger.error('Can not connect to host {}.\n{}'.format(
-                     connect_conf['server'], e))
+                     conf['server'], e))
         return
 
     try:
-        imap.login(connect_conf['login'], connect_conf['password'])
+        imap.login(conf['login'], conf['password'])
     except Exception as e:
         logger.error('Can not login as {}.\n{}'.format(
-                     connect_conf['login'], e))
+                     conf['login'], e))
         return
 
     return imap
 
 
-def search(imap, search_conf):
-    imap.select(search_conf['mailbox'], readonly=False)
+def search(imap, conf):
+    imap.select(conf['mailbox'], readonly=False)
 
     res, found = imap.search(
         'utf-8',
         'UNSEEN',
-        'FROM', '"{0}"'.format(search_conf['from']),
-        'SUBJECT', '"{0}"'.format(search_conf['subject']),
+        'FROM', '"{0}"'.format(conf['from']),
+        'SUBJECT', '"{0}"'.format(conf['subject']),
     )
     if not found[0]:
         logger.debug('not found')
