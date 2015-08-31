@@ -18,22 +18,23 @@ def append_rows(conn, rows, config):
     spreadsheet = conn.open_by_key(config['id'])
     worksheet = spreadsheet.get_worksheet(config['worksheet'])
     row_index = find_empty_row(worksheet)
-    for row in rows:
-        cell_index = 1
-        for cell in row:
-            worksheet.update_cell(row_index, cell_index, cell[1])
-            cell_index += 1
-        row_index += 1
+    for j, row in enumerate(rows, start=row_index):
+        for i, cell in enumerate(row):
+            worksheet.update_cell(j, i + 1, cell[1])
 
 def find_empty_row(worksheet):
     row_index = 1
-    row = worksheet.row_values(row_index);
-    while (not is_empty_row(row)):
+    while True:
+        row = worksheet.row_values(row_index)
+        print(row)
+        if is_empty_row(row):
+            print ('First empty row – ', row_index)
+            return row_index
         row_index += 1
-        row = worksheet.row_values(row_index);
-    return row_index
 
 def is_empty_row(row_values):
+    if row_values == []:
+         return True
     for value in row_values:
         if (value != 'None'):
             return False
