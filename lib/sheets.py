@@ -16,4 +16,25 @@ def connect(conf):
 
 def append_rows(conn, rows, config):
     spreadsheet = conn.open_by_key(config['id'])
-    worksheet = sh.get_worksheet(config['worksheet'])
+    worksheet = spreadsheet.get_worksheet(config['worksheet'])
+    row_index = find_empty_row(worksheet)
+    for row in rows:
+        cell_index = 1
+        for cell in row:
+            worksheet.update_cell(row_index, cell_index, cell[1])
+            cell_index += 1
+        row_index += 1
+
+def find_empty_row(worksheet):
+    row_index = 1
+    row = worksheet.row_values(row_index);
+    while (not is_empty_row(row)):
+        row_index += 1
+        row = worksheet.row_values(row_index);
+    return row_index
+
+def is_empty_row(row_values):
+    for value in row_values:
+        if (value != 'None'):
+            return False
+    return True
