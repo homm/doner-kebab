@@ -12,3 +12,8 @@ def connect(conf):
         ['https://spreadsheets.google.com/feeds'],
     )
     return gspread.authorize(credent)
+
+
+def append_rows(conn, rows, config):
+    spreadsheet = conn.open_by_key(config['id'])
+    worksheet = sh.get_worksheet(config['worksheet'])

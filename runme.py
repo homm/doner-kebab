@@ -23,6 +23,10 @@ def run():
     if not email_conn:
         return
 
+    sheet_conn = sheets.connect(config.GOOGLE_AUTH)
+    if not sheet_conn:
+        return
+
     handled = []
     for uid, message in email.search(email_conn, config.EMAIL_SEARCH):
         text = email.message_to_plain_text(message)
@@ -39,12 +43,13 @@ def run():
 
         logger.info("id: {} {}".format(uid, repr(parsed)))
 
-        handled.append(uid)
-
-    connection = sheets.connect(config.GOOGLE_AUTH)
+        handled.append((uid, parsed))
 
     if handled:
-        email.mark_as_seen(email_conn, handled)
+        sheets.append_rows(sheet_conn,
+                           [parsed for _, parsed in handled],
+                           config.GOOGLE_DOC)
+        email.mark_as_seen(email_conn, [uid for uid, _ in handled])
 
 
 if __name__ == "__main__":

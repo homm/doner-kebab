@@ -33,4 +33,5 @@ GOOGLE_AUTH = {
 
 GOOGLE_DOC = {
     'id': '1Ht2e2tmiHWOv6UsQ1T0UMoWd2T_zs5XMlQ_oTakOrrQ',
+    'worksheet': 0,
 }
