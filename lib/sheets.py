@@ -26,16 +26,14 @@ def find_empty_row(worksheet):
     row_index = 1
     while True:
         row = worksheet.row_values(row_index)
-        print(row)
         if is_empty_row(row):
-            print ('First empty row – ', row_index)
             return row_index
         row_index += 1
 
 def is_empty_row(row_values):
-    if row_values == []:
+    if not row_values:
          return True
     for value in row_values:
-        if (value != 'None'):
+        if value != 'None':
             return False
     return True
