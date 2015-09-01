@@ -44,7 +44,7 @@
 
 ### GOOGLE_AUTH
 
-Сертификат Google для использования API. [Инструкция, как получить](https://docs.google.com/document/d/1nLHQ9wFxU6VslSoqQNU8Mj5LgsNPuNBNedNJG1LuPTY/).
+Сертификат Google для использования API. [Инструкция, как получить](https://docs.google.com/document/d/1nLHQ9wFxU6VslSoqQNU8Mj5LgsNPuNBNedNJG1LuPTY/edit?usp=sharing).
 
 ### GOOGLE_DOC
 
