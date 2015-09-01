@@ -44,13 +44,13 @@
 
 ### GOOGLE_AUTH
 
-Сертификат Google для использования API. [Инструкция, как получить](https://docs.google.com/document/d/1nLHQ9wFxU6VslSoqQNU8Mj5LgsNPuNBNedNJG1LuPTY/)
+Сертификат Google для использования API. [Инструкция, как получить](https://docs.google.com/document/d/1nLHQ9wFxU6VslSoqQNU8Mj5LgsNPuNBNedNJG1LuPTY/).
 
 ### GOOGLE_DOC
 
 Параметры таблицы, в которую будут заноситься данные.
 
-* `id` — идентификатор таблицы, получается из ее адреса. Пример: https://docs.google.com/spreadsheets/d/`1ewAwn_qGkfJOLSoxJ7MBt3kUBFoVQC1rLo1zFtnEpQs`/
+* `id` — идентификатор таблицы, получается из ее адреса. Пример: docs.google.com/spreadsheets/d/`1ewAwn_qGkfJOLSoxJ7MBt3kUBFoVQC1rLo1zFtnEpQs`/
 * `worksheet` — номер листа в таблице, в который нужно заносить данные. Первый — 0.
 
 **Откройте доступ к редактированию таблицу для почтового ящика из поля сертификата `client_email`** Имя ящика будет похоже на `688179275061-p119h20spoa8a4ccqcnrbjq87cd0f56s@developer.gserviceaccount.com`
