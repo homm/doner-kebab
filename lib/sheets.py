@@ -19,7 +19,5 @@ def prepend_rows(conn, rows, config):
     worksheet = spreadsheet.get_worksheet(config['worksheet'])
     row_index = find_empty_row(worksheet)
     for j, row in enumerate(rows, start=row_index):
-        new_row = []
-        for i, cell in enumerate(row):
-            new_row.append(cell[1])
+        new_row = [cell[1] for cell in row]
         worksheet.insert_row(new_row, 2)
