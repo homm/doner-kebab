@@ -18,6 +18,6 @@ def prepend_rows(conn, rows, config):
     spreadsheet = conn.open_by_key(config['id'])
     worksheet = spreadsheet.get_worksheet(config['worksheet'])
     row_index = find_empty_row(worksheet)
-    for j, row in enumerate(rows, start=row_index):
+    for row in rows:
         new_row = [cell[1] for cell in row]
         worksheet.insert_row(new_row, 2)
