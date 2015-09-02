@@ -2,8 +2,8 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 EMAIL_CONNECT = {
-    'login': 'lenivezbest@yandex.ru',
-    'password': 'teslaGENIUS1856alive',
+    'login': 'your.mail@yandex.ru',
+    'password': 'not a real password',
     'server': 'imap.yandex.ru',
     'ssl': True,
 }
@@ -11,7 +11,7 @@ EMAIL_CONNECT = {
 EMAIL_SEARCH = {
     'mailbox': 'INBOX',
     # 'from': 'paymentcenter@yamoney.ru',
-    'from': 'kirill@kirillchernakov.ru',
+    'from': 'info@city4people.ru',
     'subject': 'Yandex.Dengi payment for',
 }
 
@@ -24,14 +24,14 @@ PARSE_RULES = [
 
 
 GOOGLE_AUTH = {
-    "private_key_id": "c2924367491071f6924d70ab9298d6450232945d",
-    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCjpPvLIjtBmMeK\n6JsuB2Y1mO+c/Ftv9x1pOup9VS31e3xhNzWc2kMa1MsyFPHRKzn1mj9895ojpMem\nuowFhC8+vatnEaFSj8SEy7YjR1EOIPu8L9HcFg001deHOeFHhfB/vtkqzH0kOyvN\njcc5Fkxklsh9Q9jU1TnsBSiUgkvXAWDEG3yxr1NwMbR9A9J09gX4AmrEkT09calr\nQRGkH1rXmGd5PtjdIteq6PH/ppYxpiXl1fgXCXxWL1FoRo/eIxU7Z7IwSIQcbcKi\nCsfnrXyKx5NzEC+cJZLSXWVqgdGsoZlkZYjrowLvyvNPf9/oWCWq57/UADz8MBc0\nLEoTL5g3AgMBAAECggEAS/m+OUpUTpk7E3/5A/7Fcl7l6HG1lh8Z1ZBX7AaPBujl\nD1GNn5wqCZwAFulod99k0mVh0og2VRQc6Yi0l58OPEfc+0ZRKr6605isoGZs+G1R\n0sY03cSTLxOVNCAoOoex5+1YcCludFLQfGe1tghnQVBMFvRYCEBS2wRuGb0Arvoj\nehGL6/CXxfN6iTNqaLJXxRiwWxvwCqpH/Xm/vR5iMjidMDOq1t0Rpajy9Sue3tR/\nftM3O4hFC7njj70SUxzrWjksgOS/Q7hbXWL3tFTsIEVfLTdidFyIYSUPn/N6gNJo\n+CrymS5dF2dMOk2MMVPLUh6gtPLlHuMjL2hfrhATUQKBgQDX8Ob4MJPPMmxNSraU\nTAhD88jdWJPPMaZWpumL1Ob+72i8vk7rUbmvCUuMrPMW8EACcC8KImtgCe4VcVn8\nrmnoU67N3IGpgavJm2biih2k2Cs+CEH38PJyoOvJxAcrtUZozQqX04s8LDtKR41d\nK+W08p6N7zTnF7oeDfL4petfvwKBgQDCAIDwL4ZsA5bN+r9M8zOjHBccoY6HeaoZ\n2eQpjBh4CXJZeTHZFAooHKiOL9Ju+K1j8EP+ZdW+o0+I72N98MmnWMeM9+6ZLTUp\nkOf8fex0lYd21uPcJeDTiAQMXe+z3xEinqz+M44ccyQSDX5mLE5Bp6+1GUGc8ENO\nWVtgIU1liQKBgHRNQgiQGTux25SxVa5/WMBIb3mPeGRSSFVJJmXyb8sEZHOrR9QD\nuy8joXYNvAsxsDff9eXObehW0MzptN6bjVzcnTwwtAD4Xu6BbSM74gVji76oMed4\n9Qt50iRkGLyYsGhHbpohDE+HPxOdf+ybdOdE+NJW8DY6mDoRpzf2HNP/AoGAIEQd\nLdV5sfVW26NctdutNu+xGF32aqndlLccr5xRZYWMszzpAYXHuqwpjJx/j11k2T5Y\n0LL3PeHDlK7cCVJG98JYTiXeVTOjp+ol62S2Mx27jhRniXHzVrtEkRn+iBgNrYhe\nlVjVxf2QfkAoSa4MxfaxzpkIxKVhTGKoQ/DGAqECgYAgVfUh5y2qDLBiAjpVQUiz\nAhUPLUq7mDu1C/bA/ZmsY23+cLwOERfZNJtuSszOJRxV+iC3E/I7q0NwZks+fiG5\nH+310MObHyW/lGPtbLOAhaAQX+pj1ktBCn/Gq5V56I9oRYnl103GFiitljRHZlI1\n/tbdNxRljaobBScQSQ8cDQ\u003d\u003d\n-----END PRIVATE KEY-----\n",
-    "client_email": "242258052705-i3q6r7ts0b0hk3keeludt7e182h1tq42@developer.gserviceaccount.com",
-    "client_id": "242258052705-i3q6r7ts0b0hk3keeludt7e182h1tq42.apps.googleusercontent.com",
+    "private_key_id": "1507b7afc047816d9beee41abbb9e3d9e6b041c8",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC9B5ufE8oZW1DV\nwOWloCodzddfjNEqPHoJ4UG/bh3nNFVOdQJDFmt0u6Y7JKyUnc4p2RY7FOpuElFj\nU9mFIzZdgeJLvNdIqT69r7Ccr5CKM8bd6KYBGRW2u1uoJg9wa7fznN9YkVtobQmc\nQeGhnN+SgO/GtuPmLEfHQ/DRy5KX85oXoGu2wPLUrmQ9EcWDjLC7ztCwryijemqD\n6PyryJiXmijaD2xk2fRh8m+BqxT/icSh0eG+xvSv/ksaFfw1Fj1Z8o/fhCx8pgxi\nCA2FrnE+VDJ5a0B3hlYj6nkT1GmjRCV4YiX4jn8PjZpzhjNmr0YoRomO0CzAQLBC\nISFqLaF3AgMBAAECggEBAKvZCsVn/EdpGOf64cvc++z0gWRAZLd9G4V334nk1hKn\nJRaakV/kNfR90/XYtXy2qgKpdOhpb2Z6CLvAMvQyuu3vcodgOme4VW2lF26avVCn\nGZgMNT6yS2dAlWccktSlWSqD5xhhrTQWTLJdwn5mW2qZBWMmSbGrd+XUAk74P2Eb\nZn2vmSt0n/+lN+Uqy7jSASj7O1AjTOhQqVBQbd9hIfjYeK8Z/mB0eEXyQ/MBGp+4\nbPDTqMMt72U15qIDkgvM1k3IetREKJsaU1VPqXTYZ5AQ8v1BibWoXQGdqackWAY6\nL3xa6R5RToCey8KHrFSKV5qajkLO/VVjAWK4Z8q5DOECgYEA+HNMJ3lgPwfvy5K1\nMu29FxskFEAbmv7XfjQVYHMEGuW2WUTvA0J+E6McIlrHEjl3hEH5n81I5DtYs3vY\nJcxXewhmfQVNfrM2s5+ryVMMQSyNK3mJavFa8EkBcQZ3f3iisfQTYfi4y9E8uCsW\nlHpUOrGRRFdysg+Q6PuHGoEt/XUCgYEAwsYTTgGKy6vcUInmqoc/A8daZyS8eJLS\n7766BtDx/w2AzqxnSI3rgZ9SjhiWKf2odnk+mWVJZG9Um5+BAQS0Xnw+rZViVHyL\nhdwB+Kiqayf/fZjuDvdn1UCps1nwhSFkSukHviIhKibeCfZEfIOW7G/o8qlPNqU0\nS5dFBs+O6bsCgYBJSZl5O3CMp0axAkG5GC/jFPp7jr2V5v6iF7MGlGbtmD1F7/Oh\nPof6Ou8dozF9yr3aoauE3AVYbbkomKuV2sUjYcL5tgq6CRtluP/vjzPaNc4euOc0\nSKXOo3ptYL73Nxqm65ycFcZNORd0LCGpAry944s6YaFPrQ/N6gRcaSar0QKBgDN+\nyPXTxI1qp7oHa5vkXA20tDsW5FmAgBJwu6A3t/N173s0662sD/raU6pL58+8R8Di\n92D4/Xl3Ucg/WI0bYFCmyq98El5B+2VtsHu8pCnmjk73kuEUGjiweu13NvcLyAdi\nKvDi9x+83PGHUb4V0F48jDsz9kR9UyE1IkPVtnQnAoGAT0Zq2iWvTCA10ZmZxjhS\nrmtiOsKSxh99qwNwSqmKGgail7r69s3bTCaQexOeigQTvYLBaZf9EjvTqoaZA+TI\nlWxSzY5qDugcH8xXjzlLD1KAewZvo79A7cOFX48Bw//0nRZF6CHgUNWLgT1dtH1I\nXn3BvHh3uO2iVrTOYfnlv+Y\u003d\n-----END PRIVATE KEY-----\n",
+    "client_email": "869161537625-9td4miap838n6of58o0vq82am5iihe8k@developer.gserviceaccount.com",
+    "client_id": "869161537625-9td4miap838n6of58o0vq82am5iihe8k.apps.googleusercontent.com",
     "type": "service_account"
 }
 
 GOOGLE_DOC = {
-    'id': '1ewAwn_qGkfJOLSoxJ7MBt3kUBFoVQC1rLo1zFtnEpQs',
+    'id': '1Ht2e2tmiHWOv6UsQ1T0UMoWd2T_zs5XMlQ_oTakOrrQ',
     'worksheet': 0,
 }
