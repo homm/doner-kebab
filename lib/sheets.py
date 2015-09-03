@@ -14,26 +14,31 @@ def connect(conf):
     return gspread.authorize(credent)
 
 
-def append_rows(conn, rows, config):
+def prepend_rows(conn, rows, config):
     spreadsheet = conn.open_by_key(config['id'])
     worksheet = spreadsheet.get_worksheet(config['worksheet'])
-    row_index = find_empty_row(worksheet)
-    for j, row in enumerate(rows, start=row_index):
-        for i, cell in enumerate(row):
-            worksheet.update_cell(j, i + 1, cell[1])
+    all_values = worksheet.get_all_values()
 
-def find_empty_row(worksheet):
-    row_index = 1
-    while True:
-        row = worksheet.row_values(row_index)
-        if is_empty_row(row):
-            return row_index
-        row_index += 1
+    for row in rows:
+        new_row = [cell[1] for cell in row]
+        all_values.insert(1, new_row)
 
-def is_empty_row(row_values):
-    if not row_values:
-         return True
-    for value in row_values:
-        if value != 'None':
-            return False
-    return True
+    row_count = len(all_values)
+    col_count = len(all_values[0])
+
+    # Add extra cols or rows if not enough existing
+    if worksheet.row_count < row_count:
+        worksheet.add_rows(row_count - worksheet.row_count)
+    if worksheet.col_count < col_count:
+        worksheet.add_cols(col_count - worksheet.col_count)
+
+    # Select cells
+    cell_list = worksheet.range("A1:" + string.uppercase[col_count - 1] + str(row_count))
+
+    # Make flat list of data
+    cell_values = reduce(lambda res, x: res + x, all_values, [])
+
+    for i, val in enumerate(cell_values):
+        cell_list[i].value = val
+
+    worksheet.update_cells(cell_list)

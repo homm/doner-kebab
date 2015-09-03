@@ -46,7 +46,7 @@ def run():
         handled.append((uid, parsed))
 
     if handled:
-        sheets.append_rows(sheet_conn,
+        sheets.prepend_rows(sheet_conn,
                            [parsed for _, parsed in handled],
                            config.GOOGLE_DOC)
         email.mark_as_seen(email_conn, [uid for uid, _ in handled])
