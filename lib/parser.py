@@ -17,7 +17,7 @@ def parse_body(body, rules):
         if len(rule) > 2:
             postfix = rule[2]
         if postfix:
-            regexp = r'^\s*{}\s*([^{}]*)'.format(prefix, postfix)
+            regexp = r'^\s*{}\s*([^{}|\n]*)'.format(prefix, postfix)
         else:
             regexp = r'^\s*{}\s*([^\n]*)\n'.format(prefix)
 
