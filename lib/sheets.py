@@ -17,14 +17,20 @@ def connect(conf):
 def prepend_rows(conn, rows, config):
     spreadsheet = conn.open_by_key(config['id'])
     worksheet = spreadsheet.get_worksheet(config['worksheet'])
-    all_values = worksheet.get_all_values()
 
-    for row in rows:
-        new_row = [cell[1] for cell in row]
-        all_values.insert(1, new_row)
+    col_count = len(rows[0])
+    # Remove unnecessary cols values
+    all_values = [x[:col_count] for x in worksheet.get_all_values()]
+
+    new_values = [[cell[1] for cell in row] for row in rows]
+
+    new_values = sorted(new_values, key=lambda x: int(float(x[0])), reverse=True)
+    print(new_values)
+
+    # Inserting new values after headers
+    all_values = [all_values[0]] + new_values + all_values[1:]
 
     row_count = len(all_values)
-    col_count = len(all_values[0])
 
     # Add extra cols or rows if not enough existing
     if worksheet.row_count < row_count:
