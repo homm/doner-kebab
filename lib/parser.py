@@ -10,8 +10,11 @@ logger = logging.getLogger(__name__)
 
 def parse_body(body, rules):
     result = []
-    for name, prefix in rules:
-        regexp = r'^\s*{}\s*([^\n]*)\n'.format(prefix)
+    for rule in rules:
+        name, prefix = rule[0], rule[1]
+        postfix = '\n' if len(rule) == 2 else rule[2]
+
+        regexp = r'^\s*{}\s*(.*?){}'.format(prefix, postfix)
         match = re.search(regexp, body, re.M)
 
         if match:
