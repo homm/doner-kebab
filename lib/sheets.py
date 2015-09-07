@@ -24,6 +24,10 @@ def prepend_rows(conn, rows, config):
 
     new_values = [[cell[1] for cell in row] for row in rows]
 
+    # Getting index of cells with ids
+    col_names = [cell[0] for cell in rows[0]]
+    id_index = col_names.index('id')
+
     new_values = sorted(new_values, key=lambda x: int(float(x[0])), reverse=True)
     print(new_values)
 
